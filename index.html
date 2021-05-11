@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Awesome Piracy</title>
+	<style>
+		main
+		{
+			font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+			font-size: 16px;
+			line-height: 1.5;
+			width: 960px;
+			margin: auto;
+		}
+	</style>
+</head>
+<body>
+	<main></main>
+
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script>
+		// Get the markdown file, convert to HTML & put inside main tag
+		fetch( 'https://raw.githubusercontent.com/Igglybuff/awesome-piracy/master/readme.md' )
+			.then( response => response.text() )
+			.then( data => {
+				// Get Github emojis
+				fetch( 'https://api.github.com/emojis' )
+					.then( response => response.text() )
+					.then( data2 => JSON.parse( data2 ) )
+					.then( emojis => { for( let x in emojis )
+						{
+							data = data.replaceAll( `:${x}:`, `<img src="${emojis[ x ]}" width="20">` );
+						}
+					})
+					.then( data3 => { document.querySelector( 'main' ).innerHTML = marked( data ); } )
+					.catch( error => console.error( 'Error:', error ) );
+			})
+			.catch( error => console.error( 'Error:', error ) );
+
+		// Get the theme stylesheet & add it to the page
+		fetch( 'https://raw.githubusercontent.com/arturadib/strapdown/gh-pages/v/0.2/themes/united.min.css' )
+			.then( response => response.text() )
+			.then( data => { document.querySelector( 'style' ).innerText += data; } )
+			.catch( error => console.error( 'Error:', error ) );
+	</script>
+</body>
+</html>
