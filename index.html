@@ -32,6 +32,7 @@
 						{
 							data = data.replaceAll( `:${x}:`, `<img src="${emojis[ x ]}" width="20">` );
 						}
+						data = data.replaceAll( '🧲', `<img src="${emojis[ 'magnet' ]}" width="15">` );
 					})
 					.then( data3 => { document.querySelector( 'main' ).innerHTML = marked( data ); } )
 					.catch( error => console.error( 'Error:', error ) );
