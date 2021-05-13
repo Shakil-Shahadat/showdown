@@ -48,6 +48,12 @@
 			})
 			.catch( error => console.error( 'Error:', error ) );
 
+		// Change the theme
+		function changeCSS( theme )
+		{
+			document.querySelector( 'link' ).href
+					= `https://cdn.jsdelivr.net/npm/bootswatch@5.0.0/dist/${theme}/bootstrap.min.css`;
+		}
 	</script>
 </body>
 </html>
