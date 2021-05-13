@@ -33,6 +33,7 @@
 
 	<main></main>
 
+	<!-- JavaScript Library to Convert Markdown INto HTML -->
 	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<script>
 		// Get the markdown file, convert to HTML & put inside main tag
@@ -45,10 +46,13 @@
 					.then( data2 => JSON.parse( data2 ) )
 					.then( emojis => { for( let x in emojis )
 						{
+							// Replace all GitHub emoji short codes to emoji images
 							data = data.replaceAll( `:${x}:`, `<img src="${emojis[ x ]}" width="20">` );
 						}
+						// Replace a special Unicode emoji to GitHub emoji
 						data = data.replaceAll( '🧲', `<img src="${emojis[ 'magnet' ]}" width="15">` );
 					})
+					// Add converted HTML to main tag
 					.then( data3 => { document.querySelector( 'main' ).innerHTML = marked( data ); } )
 					.catch( error => console.error( 'Error:', error ) );
 			})
