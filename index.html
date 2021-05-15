@@ -39,6 +39,9 @@
 		// Basic Settings
 		const defaultTheme = 'darkly';
 		let repository = 'https://github.com/Igglybuff/awesome-piracy';
+		const bootswatchVersion = '5.0.1';
+		// Update last one only when https://www.jsdelivr.com/package/npm/bootswatch is updated
+
 		// Get the markdown file, convert to HTML & put inside main tag
 		repository = repository.replace( 'https://github.com/', '' );
 		fetch( `https://raw.githubusercontent.com/${repository}/master/readme.md` )
@@ -66,7 +69,7 @@
 		function changeCSS( theme )
 		{
 			document.querySelector( 'link' ).href
-					= `https://cdn.jsdelivr.net/npm/bootswatch@5.0.0/dist/${theme}/bootstrap.min.css`;
+					= `https://cdn.jsdelivr.net/npm/bootswatch@${bootswatchVersion}/dist/${theme}/bootstrap.min.css`;
 		}
 
 		// Set the default theme
