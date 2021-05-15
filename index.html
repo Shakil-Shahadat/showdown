@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Awesome Piracy</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.0.0/dist/united/bootstrap.min.css">
+	<link rel="stylesheet" href="">
 	<style>
 		main
 		{
@@ -36,6 +36,8 @@
 	<!-- JavaScript Library to Convert Markdown INto HTML -->
 	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<script>
+		// Basic Settings
+		const defaultTheme = 'darkly';
 		// Get the markdown file, convert to HTML & put inside main tag
 		fetch( 'https://raw.githubusercontent.com/Igglybuff/awesome-piracy/master/readme.md' )
 			.then( response => response.text() )
@@ -64,6 +66,9 @@
 			document.querySelector( 'link' ).href
 					= `https://cdn.jsdelivr.net/npm/bootswatch@5.0.0/dist/${theme}/bootstrap.min.css`;
 		}
+
+		// Set the default theme
+		changeCSS( defaultTheme );
 	</script>
 </body>
 </html>
