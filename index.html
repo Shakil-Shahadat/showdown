@@ -38,8 +38,10 @@
 	<script>
 		// Basic Settings
 		const defaultTheme = 'darkly';
+		let repository = 'https://github.com/Igglybuff/awesome-piracy';
 		// Get the markdown file, convert to HTML & put inside main tag
-		fetch( 'https://raw.githubusercontent.com/Igglybuff/awesome-piracy/master/readme.md' )
+		repository = repository.replace( 'https://github.com/', '' );
+		fetch( `https://raw.githubusercontent.com/${repository}/master/readme.md` )
 			.then( response => response.text() )
 			.then( data => {
 				// Get Github emojis
