@@ -60,7 +60,7 @@
 						data = data.replaceAll( '🧲', `<img src="${emojis[ 'magnet' ]}" width="15">` );
 					})
 					// Add converted HTML to main tag
-					.then( data3 => { document.querySelector( 'main' ).innerHTML = marked( data ); } )
+					.then( data3 => { document.querySelector( 'main' ).innerHTML = marked.parse( data ); } )
 					.catch( error => console.error( 'Error:', error ) );
 			})
 			.catch( error => console.error( 'Error:', error ) );
