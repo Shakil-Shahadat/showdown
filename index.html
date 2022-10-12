@@ -56,8 +56,6 @@
 							// Replace all GitHub emoji short codes to emoji images
 							data = data.replaceAll( `:${x}:`, `<img src="${emojis[ x ]}" width="20">` );
 						}
-						// Replace a special Unicode emoji to GitHub emoji
-						data = data.replaceAll( '🧲', `<img src="${emojis[ 'magnet' ]}" width="15">` );
 					})
 					// Add converted HTML to main tag
 					.then( data3 => { document.querySelector( 'main' ).innerHTML = marked.parse( data ); } )
