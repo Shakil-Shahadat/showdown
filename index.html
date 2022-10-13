@@ -45,19 +45,8 @@
 		fetch( `https://raw.githubusercontent.com/Shakil-Shahadat/awesome-piracy/main/Readme.md` )
 			.then( response => response.text() )
 			.then( data => {
-				// Get Github emojis
-				fetch( 'https://api.github.com/emojis' )
-					.then( response => response.text() )
-					.then( data2 => JSON.parse( data2 ) )
-					.then( emojis => { for( let x in emojis )
-						{
-							// Replace all GitHub emoji short codes to emoji images
-							data = data.replaceAll( `:${x}:`, `<img src="${emojis[ x ]}" width="20">` );
-						}
-					})
-					// Add converted HTML to main tag
-					.then( data3 => { document.querySelector( 'main' ).innerHTML = marked.parse( data ); } )
-					.catch( error => console.error( 'Error:', error ) );
+				data = data.replaceAll( ':star2:', '<img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8" width="20">' );
+				document.querySelector( 'main' ).innerHTML = marked.parse( data );
 			})
 			.catch( error => console.error( 'Error:', error ) );
 
