@@ -44,7 +44,7 @@
 
 		// Get the markdown file, convert to HTML & put inside main tag
 		repository = repository.replace( 'https://github.com/', '' );
-		fetch( `https://raw.githubusercontent.com/${repository}/main/Readme.md` )
+		fetch( `https://raw.githubusercontent.com/Shakil-Shahadat/awesome-piracy/main/Readme.md` )
 			.then( response => response.text() )
 			.then( data => {
 				// Get Github emojis
